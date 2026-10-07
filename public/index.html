@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Outreach Agent</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Outreach Agent</h1>
+  <div id="status" class="pills"></div>
+</header>
+
+<main>
+  <section class="card" id="setup">
+    <h2>1 · Your profile</h2>
+    <div class="grid">
+      <label>Full name<input id="name"></label>
+      <label>Phone (optional)<input id="phone"></label>
+      <label>Links for signature (LinkedIn, GitHub…)<input id="links"></label>
+      <label>Target roles<input id="targetRoles" placeholder="e.g. Full-stack engineer, backend SDE"></label>
+      <label>One-line pitch <small>(used in every email)</small><input id="pitch" placeholder="e.g. 3 yrs building Node/React products; cut API latency 60% at Acme"></label>
+    </div>
+    <label>Background &amp; highlights <small>(the agent only uses facts from here)</small>
+      <textarea id="background" rows="6" placeholder="Current role, years of experience, top 3-4 achievements with numbers, stack, notable projects…"></textarea>
+    </label>
+    <div class="row">
+      <label class="file">Resume (PDF/DOCX)<input type="file" id="resume" accept=".pdf,.doc,.docx"></label>
+      <span id="resumeName" class="muted"></span>
+      <button id="saveProfile">Save profile</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2 · Paste recruiter info</h2>
+    <p class="muted">Anything works: LinkedIn posts, job ads, a list of emails, a spreadsheet dump.</p>
+    <textarea id="paste" rows="8" placeholder="Paste here…"></textarea>
+    <div class="row">
+      <label>Tone
+        <select id="style">
+          <option>confident but friendly</option>
+          <option>concise and professional</option>
+          <option>warm and enthusiastic</option>
+          <option>witty but respectful</option>
+        </select>
+      </label>
+      <button id="go" class="primary">Find recruiters &amp; draft emails</button>
+      <span id="progress" class="muted"></span>
+    </div>
+  </section>
+
+  <section class="card" id="review" hidden>
+    <h2>3 · Review &amp; send</h2>
+    <div class="row">
+      <button id="selAll" class="ghost">Select all</button>
+      <button id="selNone" class="ghost">Select none</button>
+      <button id="send" class="primary">Send selected</button>
+      <span id="sendProgress" class="muted"></span>
+    </div>
+    <div id="list"></div>
+  </section>
+
+  <section class="card">
+    <h2>Sent history</h2>
+    <div id="log" class="muted">Nothing sent yet.</div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
